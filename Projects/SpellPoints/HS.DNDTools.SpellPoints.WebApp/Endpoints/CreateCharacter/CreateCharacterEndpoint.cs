@@ -3,7 +3,7 @@ using HS.DNDTools.SpellPoints.WebApp.Models;
 
 namespace HS.DNDTools.SpellPoints.WebApp.Endpoints.CreateCharacter
 {
-    public class CreateCharacterEndpoint : Endpoint<CreateCharacterRequest, CreateCharacterResponse>
+    public class CreateCharacterEndpoint : Endpoint<CreateCharacterRequest, CreateCharacterResponse, CreateCharacterMapper>
     {
         public override void Configure()
         {
@@ -14,11 +14,7 @@ namespace HS.DNDTools.SpellPoints.WebApp.Endpoints.CreateCharacter
         public override async Task HandleAsync(CreateCharacterRequest req, CancellationToken ct)
         {
             var response = new CreateCharacterResponse();
-            response.Character = new CharacterModel();
-            response.Character.Name = req.Name;
-            response.Character.MaxSpellPoints = (new MaxSpellPoints()).CalculateForLevel(req.Level);
-            response.Character.CurrentSpellPoints = response.Character.MaxSpellPoints;
-            response.Character.Level = req.Level;
+            response.Character = Map.ToEntity(req);
             await SendAsync(response);
         }
     }
