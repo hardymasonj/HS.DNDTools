@@ -1,0 +1,19 @@
+<section>
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label id="lbl-name">Name</mat-label>
+      <input matInput id="txt-name" type="text" [(ngModel)]="character.name" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label id="lbl-level">Level</mat-label>
+      <input type="number" matInput id="txt-level" [(ngModel)]="character.level">
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="submit()">
+      Submit
+    </button>
+  </div>
+</section>
