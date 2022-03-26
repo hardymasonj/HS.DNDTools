@@ -10,9 +10,11 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CharacterService {
-  characterUrl: string = "api/v1/new-character/";
   constructor(private http:HttpClient) { }
   createCharacter(name: string, level:number): Observable<Character> {
-    return this.http.get<Character>(this.characterUrl + name + "/" + level.toString());
+    return this.http.get<Character>("api/v1/new-character/" + name + "/" + level.toString());
+  }
+  getCharacter(id: string): Observable<Character>{
+    return this.http.get<Character>("api/v1/character/" + id);
   }
 }

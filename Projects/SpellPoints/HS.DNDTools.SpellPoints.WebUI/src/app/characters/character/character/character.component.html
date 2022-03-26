@@ -1,1 +1,19 @@
-<p>character works!</p>
+<section style="text-align:center;">
+  <h2 id="character-name">
+    {{ character.name }}
+  </h2>
+  <div>
+    <span>{{ currentSpellPoints() }}</span> / <span style="font-weight:bold;">{{ character.maxSpellPoints }}</span>
+  </div>
+  <div>
+    <button mat-raised-button class="primary">
+      1<sup>st</sup> Level
+    </button>
+    <button mat-raised-button class="primary">
+      2<sup>nd</sup> Level
+    </button>
+    <button mat-raised-button class="primary">
+      3<sup>rd</sup> Level
+    </button>
+  </div>
+</section>
