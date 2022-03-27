@@ -1,4 +1,7 @@
 global using FastEndpoints;
+using HS.DNDTools.SpellPoints.Application.Providers;
+using HS.DNDTools.SpellPoints.Domain.Providers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddFastEndpoints();
+builder.Services.AddScoped<ICharacterListProvider, TestCharacterListProvider>();
+builder.Services.AddScoped<ICharacterProvider, TestCharacterProvider>();
 
 var app = builder.Build();
 

@@ -4,10 +4,12 @@ import { CreateCharacterComponent } from './characters/create-character/create-c
 import { AppMainNavComponent } from './app-main-nav/app-main-nav.component';
 import { CharacterComponent } from './characters/character/character/character.component';
 
+//https://stackblitz.com/run?file=src%2Fapp%2Fheroes%2Fhero-list%2Fhero-list.component.html this is a good reference for routing
+
 const routes: Routes = [
   { path: '', component: AppMainNavComponent, children:[
     { path: 'create-character', component: CreateCharacterComponent },
-    { path: 'character', component: CharacterComponent }
+    { path: 'character/:id', component: CharacterComponent}
   ]}
 ];
 

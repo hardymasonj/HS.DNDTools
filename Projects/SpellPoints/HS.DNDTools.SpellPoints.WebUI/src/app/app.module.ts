@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { CharacterComponent } from './characters/character/character/character.component';
 import { CreateCharacterComponent } from './characters/create-character/create-character/create-character.component';
+import { OnInit } from '@angular/core';
 
 @NgModule({
   declarations: [

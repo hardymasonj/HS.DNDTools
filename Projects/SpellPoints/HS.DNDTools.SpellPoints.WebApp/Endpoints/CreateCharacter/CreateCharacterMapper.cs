@@ -12,6 +12,7 @@ namespace HS.DNDTools.SpellPoints.WebApp.Endpoints.CreateCharacter
             model.Level = r.Level;
             model.MaxSpellPoints = (new SpellPoints.Application.Actions.MaxSpellPoints()).CalculateForLevel(model.Level);
             model.CurrentSpellPoints = model.MaxSpellPoints;
+            model.Id = Guid.NewGuid().ToString();
 
             return model;
         }

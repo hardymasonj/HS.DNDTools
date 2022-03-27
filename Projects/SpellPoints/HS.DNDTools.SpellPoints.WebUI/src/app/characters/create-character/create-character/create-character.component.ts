@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CreateCharacterResponseModel } from '../../create-character-response-model';
 import { Character } from '../../shared/character';
 import { CharacterService } from '../../shared/character.service';
 
@@ -19,7 +20,7 @@ export class CreateCharacterComponent implements OnInit {
     console.log(this.character);
     this.characterService.createCharacter(this.character.name, this.character.level).subscribe(c => this.handleResponse(c));
   }
-  handleResponse(character:Character){
-    console.log(character);
+  handleResponse(response:CreateCharacterResponseModel){
+    this.character = response.character;
   }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CastSpellService } from '../../shared/cast-spell/cast-spell.service';
 import { Character } from '../../shared/character';
 import { CharacterService } from '../../shared/character.service';
 
@@ -8,16 +10,24 @@ import { CharacterService } from '../../shared/character.service';
   styleUrls: ['./character.component.css']
 })
 export class CharacterComponent implements OnInit {
-  public character: Character;
-  constructor(public characterService:CharacterService) {
-    this.characterService.createCharacter("Patrick O'Neil", 5).subscribe(c=> this.character = c);
-    console.log(this.character);
+  character: Character;
+  constructor(private castSpellService:CastSpellService, private characterService:CharacterService, private route:ActivatedRoute) {
+    this.character = new Character();
   }
 
   ngOnInit(): void {
+    var id:string;
+    this.route.params.subscribe(x=> {
+      this.setCharacterFromId(x["id"]);
+    });
   }
-
-  currentSpellPoints(): number{
-    return this.character.currentSpellPoints;
+  setCharacterFromId(id:string):void{
+    this.characterService.getCharacter(id).subscribe(x=>{
+      this.character = x.character;
+      console.log(this.character);
+    })
+  }
+  castSpell(level:number){
+    this.castSpellService.castSpell(this.character, level).subscribe(x=> this.character = x.character);
   }
 }

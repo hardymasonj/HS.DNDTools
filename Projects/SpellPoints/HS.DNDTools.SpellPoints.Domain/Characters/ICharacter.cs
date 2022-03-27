@@ -8,6 +8,7 @@ namespace HS.DNDTools.SpellPoints.Domain.Characters
 {
     public interface ICharacter
     {
+        string Id { get; }
         string Name { get; }
         int CurrentSpellPoints { get; }
         int MaxSpellPoints { get; }

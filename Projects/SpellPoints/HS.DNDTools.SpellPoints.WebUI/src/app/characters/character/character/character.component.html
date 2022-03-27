@@ -1,12 +1,14 @@
 <section style="text-align:center;">
   <h2 id="character-name">
-    {{ character.name }}
+    {{ character?.name }}
   </h2>
   <div>
-    <span>{{ currentSpellPoints() }}</span> / <span style="font-weight:bold;">{{ character.maxSpellPoints }}</span>
+    <h3>Available spell points</h3>
+    <span>{{ character?.currentSpellPoints }}</span> / <span style="font-weight:bold;">{{ character?.maxSpellPoints }}</span>
   </div>
-  <div>
-    <button mat-raised-button class="primary">
+  <div class="cast-spell-section">
+    <h3>Cast a spell</h3>
+    <button mat-raised-button class="primary" (click)="castSpell(1)">
       1<sup>st</sup> Level
     </button>
     <button mat-raised-button class="primary">
