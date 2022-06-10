@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HS.DNDTools.SpellPoints.Domain\HS.DNDTools.SpellPoints.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

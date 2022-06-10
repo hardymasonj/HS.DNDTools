@@ -1,0 +1,39 @@
+<section style="text-align:center;">
+  <h2 id="character-name">
+    {{ character?.name }}
+  </h2>
+  <div>
+    <h3>Available spell points</h3>
+    <span>{{ character?.currentSpellPoints }}</span> / <span style="font-weight:bold;">{{ character?.maxSpellPoints }}</span>
+  </div>
+  <div class="cast-spell-section">
+    <h3>Cast a spell</h3>
+    <button mat-raised-button class="primary" (click)="castSpell(1)">
+      1<sup>st</sup> Level
+    </button>
+    <button mat-raised-button class="primary" (click)="castSpell(2)" *ngIf="character.level >= 3">
+      2<sup>nd</sup> Level
+    </button>
+    <button mat-raised-button class="primary" (click)="castSpell(3)" *ngIf="character.level >= 5">
+      3<sup>rd</sup> Level
+    </button>
+    <button mat-raised-button class="primary" (click)="castSpell(4)" *ngIf="character.level >= 7">
+      4<sup>th</sup> Level
+    </button>
+    <button mat-raised-button class="primary" (click)="castSpell(5)" *ngIf="character.level >= 9">
+      5<sup>th</sup> Level
+    </button>
+    <button mat-raised-button class="primary" (click)="castSpell(6)" *ngIf="character.level >= 9">
+      6<sup>th</sup> Level
+    </button>
+    <button mat-raised-button class="primary" (click)="castSpell(7)" *ngIf="character.level >= 9">
+      7<sup>th</sup> Level
+    </button>
+    <button mat-raised-button class="primary" (click)="castSpell(8)" *ngIf="character.level >= 9">
+      8<sup>th</sup> Level
+    </button>
+    <button mat-raised-button class="primary" (click)="castSpell(9)" *ngIf="character.level >= 9">
+      9<sup>th</sup> Level
+    </button>
+  </div>
+</section>

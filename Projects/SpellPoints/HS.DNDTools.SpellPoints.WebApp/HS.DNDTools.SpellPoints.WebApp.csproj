@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FastEndpoints" Version="3.10.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HS.DNDTools.SpellPoints.Application\HS.DNDTools.SpellPoints.Application.csproj" />
+    <ProjectReference Include="..\HS.DNDTools.SpellPoints.Domain\HS.DNDTools.SpellPoints.Domain.csproj" />
   </ItemGroup>
 
 </Project>
