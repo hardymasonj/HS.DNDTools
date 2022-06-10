@@ -13,7 +13,7 @@ namespace HS.DNDTools.DataAccess.Tests.Providers
         public CosmosTestBase()
         {
             //HACK - this is horrible and settings like this should not be hard coded and definitely not put into source control
-            this.Configuration = new TestCosmosConfiguration() { Account = "https://dnd-utilities.documents.azure.com:443/", DatabaseName = "dnd-utilities", Key = "3HKi7MAqzGbtJrQIeqHhIhpbzbK7khKuWihB6bWoH97sXT3YlhvbnU1T6UarGEvJwlDYv9skRofwC01ljNhirg==" }; 
+            this.Configuration = new TestCosmosConfiguration() { Account = "https://dnd-utilities.documents.azure.com:443/", DatabaseName = "dnd-utilities", Key = "Key" }; 
         }
     }
 }
