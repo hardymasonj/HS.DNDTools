@@ -18,7 +18,7 @@ export class CharacterComponent implements OnInit {
   ngOnInit(): void {
     var id:string;
     this.route.params.subscribe(x=> {
-      this.setCharacterFromId(x["id"]);
+      this.setCharacterFromId(x["id"])
     });
   }
   setCharacterFromId(id:string):void{

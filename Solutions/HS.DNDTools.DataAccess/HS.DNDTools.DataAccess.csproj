@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Solutions\HS.DNDTools.DataAccess\HS.DNDTools.DataAccess.csproj" />
-    <ProjectReference Include="..\HS.DNDTools.SpellPoints.Domain\HS.DNDTools.SpellPoints.Domain.csproj" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.27.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Projects\SpellPoints\HS.DNDTools.SpellPoints.Domain\HS.DNDTools.SpellPoints.Domain.csproj" />
   </ItemGroup>
 
 </Project>
