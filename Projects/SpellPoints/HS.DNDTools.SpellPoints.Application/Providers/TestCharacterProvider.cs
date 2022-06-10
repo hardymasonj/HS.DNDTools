@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace HS.DNDTools.SpellPoints.Application.Providers
 {
+    /// <summary>
+    /// Horrible character provider to use while learning the Angular
+    /// </summary>
     public class TestCharacterProvider : ICharacterProvider
     {
         public ICharacter CreateCharacter(string name, int level)
@@ -35,6 +38,10 @@ namespace HS.DNDTools.SpellPoints.Application.Providers
                 case "2":
                     character.Name = "Hylaeus";
                     character.Level = 10;
+                    break;
+                case "3":
+                    character.Name = "Merlyn";
+                    character.Level = 20;
                     break;
             }
             character.MaxSpellPoints = maxSPCalculator.CalculateForLevel(character.Level);

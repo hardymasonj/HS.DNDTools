@@ -27,6 +27,12 @@ namespace HS.DNDTools.SpellPoints.Application.Providers
             character.Id = "2";
             characters.Add(character);
 
+            character = new CharacterModel() { Name = "Merlyn", Level = 20 };
+            character.CurrentSpellPoints = calculator.CalculateForLevel(character.Level);
+            character.MaxSpellPoints = character.CurrentSpellPoints;
+            character.Id = "3";
+            characters.Add(character);
+
             return characters;
         }
 

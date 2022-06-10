@@ -1,6 +1,7 @@
 ﻿using HS.DNDTools.SpellPoints.Application;
 namespace HS.DNDTools.SpellPoints.WebApp.Endpoints.CastSpell
 {
+    //https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#VariantSpellPoints
     public class CastSpellEndpoint : Endpoint<CastSpellRequestModel, CastSpellResponseModel>
     {
         public override void Configure()
