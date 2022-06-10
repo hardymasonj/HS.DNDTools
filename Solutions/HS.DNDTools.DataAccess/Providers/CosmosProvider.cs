@@ -25,7 +25,7 @@ namespace HS.DNDTools.DataAccess.Providers
         }
         public void DeleteItem(string id)
         {
-            this.Container.DeleteItemAsync<T>(id, PartitionKey.None).RunSynchronously();
+            this.DeleteItemAsync(id).RunSynchronously();
         }
 
         public T GetItem(string id)
@@ -41,6 +41,11 @@ namespace HS.DNDTools.DataAccess.Providers
         public void UpdateItem(string id, T item)
         {
             this.Container.UpsertItemAsync<T>(item, new PartitionKey(id)).RunSynchronously();
+        }
+
+        public async Task DeleteItemAsync(string id)
+        {
+            await this.Container.DeleteItemAsync<T>(id, PartitionKey.None);
         }
     }
 }

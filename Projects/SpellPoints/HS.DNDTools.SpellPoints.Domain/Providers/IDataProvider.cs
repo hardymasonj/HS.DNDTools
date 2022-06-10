@@ -12,5 +12,6 @@ namespace HS.DNDTools.SpellPoints.Domain.Providers
         void InsertItem(string id, T item);
         void UpdateItem(string id, T item);
         void DeleteItem(string id);
+        Task DeleteItemAsync(string id);
     }
 }

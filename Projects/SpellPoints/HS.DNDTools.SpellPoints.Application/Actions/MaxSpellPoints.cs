@@ -10,7 +10,11 @@ namespace HS.DNDTools.SpellPoints.Application.Actions
     {
         public int CalculateForLevel(int level)
         {
-            switch (level)
+            return this.CalculatForLevel(level, 0, 0, 0);
+        }
+        public int CalculatForLevel(int fullCaster, int halfCaster, int thirdCaster, int nonCaster)
+        {
+            switch (fullCaster)
             {
                 case 1:
                     return 4;
@@ -22,7 +26,7 @@ namespace HS.DNDTools.SpellPoints.Application.Actions
                     return 17;
                 case 5:
                     return 27;
-                case 6: 
+                case 6:
                     return 32;
                 case 7:
                     return 38;

@@ -22,6 +22,9 @@ namespace HS.DNDTools.SpellPoints.Application.Actions
         }
         protected virtual int GetSpellCost(int spellLevel)
         {
+            IReadOnlyDictionary<int, int> levels = null;
+            if (!levels.ContainsKey(spellLevel)) throw new Exception("Spell level does not match");
+            return levels.GetValueOrDefault(spellLevel);
             switch (spellLevel)
             {
                 case 1:
@@ -49,6 +52,16 @@ namespace HS.DNDTools.SpellPoints.Application.Actions
         public void Dispose()
         {
             _character = null; //Unmanaged, I just want to make sure garbage gets collected properly
+        }
+    }
+    public class CastPathfinderSpell : CastSpell
+    {
+        public CastPathfinderSpell(ICharacter character) : base(character)
+        {
+        }
+        protected override int GetSpellCost(int spellLevel)
+        {
+            return spellLevel + 5;
         }
     }
 }
