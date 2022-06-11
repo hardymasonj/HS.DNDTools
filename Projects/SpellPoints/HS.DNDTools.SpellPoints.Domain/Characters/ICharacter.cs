@@ -13,5 +13,6 @@ namespace HS.DNDTools.SpellPoints.Domain.Characters
         int CurrentSpellPoints { get; }
         int MaxSpellPoints { get; }
         int Level { get; }
+        IEnumerable<IClassLevel> ClassLevels { get; }
     }
 }

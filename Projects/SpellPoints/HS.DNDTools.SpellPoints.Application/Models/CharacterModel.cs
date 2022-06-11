@@ -2,7 +2,7 @@
 
 namespace HS.DNDTools.SpellPoints.Application.Models
 {
-    internal class CharacterModel : ICharacter
+    public class CharacterModel : ICharacter
     {
         public CharacterModel()
         {
@@ -14,5 +14,6 @@ namespace HS.DNDTools.SpellPoints.Application.Models
         public int CurrentSpellPoints { get; set; }
         public int MaxSpellPoints { get; set; }
         public string Id { get; set; }
+        public IEnumerable<IClassLevel> ClassLevels { get; set; }
     }
 }
