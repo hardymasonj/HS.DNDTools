@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace HS.DNDTools.Application.Tests.ActionTests.CharacterResources.MaxSpellPoints
 {
-    internal class TestConfiguration
+    internal class DnD5eTestConfiguration
     {
         internal IReadOnlyDictionary<int, int> SpellPointsByLevel { get; }
-        internal TestConfiguration()
+        internal DnD5eTestConfiguration()
         {
             var spellPointsByLevel = new Dictionary<int, int>();
             spellPointsByLevel.Add(0, 0);

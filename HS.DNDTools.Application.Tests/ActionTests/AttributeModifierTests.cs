@@ -10,6 +10,11 @@ namespace HS.DNDTools.Application.Tests.ActionTests
 {
     public class AttributeModifierTests
     {
+        /// <summary>
+        /// Verifies calclulation of positive values is correct
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="expectedModifier"></param>
         [Theory]
         [InlineData(10, 0)]
         [InlineData(11, 0)]
@@ -32,6 +37,11 @@ namespace HS.DNDTools.Application.Tests.ActionTests
             var actualModifier = calcluator.GetModifier(value);
             Assert.Equal(expectedModifier, actualModifier);
         }
+        /// <summary>
+        /// Verifies calcluations of negative modifiers are correct
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="expectedModifier"></param>
         [Theory]
         [InlineData(9, -1)]
         [InlineData(8, -1)]
@@ -49,6 +59,9 @@ namespace HS.DNDTools.Application.Tests.ActionTests
             Assert.Equal(expectedModifier, actualModifier);
         }
 
+        /// <summary>
+        /// Verifies an exception is thrown if the value is less than 0
+        /// </summary>
         [Fact]
         public void GuardClauseTest()
         {
