@@ -17,13 +17,14 @@ namespace HS.DNDTools.SpellPoints.Application.Actions.CharacterResources
         }
         public override int GetMax(ICharacter character)
         {
-            int casterLevel = 0;
+            double casterLevel = 0;
             foreach(var classLevel in character.ClassLevels)
             {
-                casterLevel += classLevel.Level / (int)classLevel.CasterType;
+                casterLevel += (double)classLevel.Level / (int)classLevel.CasterType;
             }
-            if (!_pointsByLevel.ContainsKey(casterLevel)) throw new KeyNotFoundException($"Spell level data not available for level {casterLevel}");
-            return _pointsByLevel[casterLevel];
+            int roundedLevel = (int)Math.Floor(casterLevel);
+            if (!_pointsByLevel.ContainsKey(roundedLevel)) throw new KeyNotFoundException($"Spell level data not available for level {roundedLevel}");
+            return _pointsByLevel[roundedLevel];
         }
     }
 }
