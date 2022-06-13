@@ -1,5 +1,7 @@
 ﻿using HS.DNDTools.SpellPoints.Application.Actions.CharacterResources;
 using HS.DNDTools.SpellPoints.Application.Models;
+using HS.DNDTools.SpellPoints.Application.Models.DnD5e;
+using HS.DNDTools.SpellPoints.Domain.Characters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +21,7 @@ namespace HS.DNDTools.Application.Tests.ActionTests.CharacterResources.PreparedS
             var calculator = CalculateMaxSpellsPrepared.GetCalculator(className);
             var character = new CharacterModel()
             {
-                ClassLevels = new List<ClassLevelTestModel5e>(new[] { new ClassLevelTestModel5e()
+                ClassLevels = new List<IClassLevel>(new[] { new DnD5eClassLevelModel()
                 {
                     Level = level,
                     Name = className
