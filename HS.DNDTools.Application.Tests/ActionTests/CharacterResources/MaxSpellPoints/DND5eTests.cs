@@ -1,5 +1,6 @@
 using HS.DNDTools.SpellPoints.Application.Actions.CharacterResources.SpellPoints;
 using HS.DNDTools.SpellPoints.Application.Models;
+using HS.DNDTools.SpellPoints.Application.Models.DnD5e;
 using HS.DNDTools.SpellPoints.Domain.Characters;
 using System.Collections.Generic;
 using Xunit;
@@ -22,7 +23,7 @@ namespace HS.DNDTools.Application.Tests.ActionTests.CharacterResources.MaxSpellP
             var classLevels = new List<IClassLevel>();
             var calculator = new Calculate5eMaxSpellPoints(config.SpellPointsByLevel);
 
-            classLevels.Add(new ClassLevelTestModel5e() { Name = className, Subclass = sublcass, Level = level });
+            classLevels.Add(new DnD5eClassLevelModel() { Name = className, Subclass = sublcass, Level = level });
             character.ClassLevels = classLevels;
 
             var maxPoints = calculator.GetMax(character);
@@ -42,8 +43,8 @@ namespace HS.DNDTools.Application.Tests.ActionTests.CharacterResources.MaxSpellP
             var classLevels = new List<IClassLevel>();
             var calculator = new Calculate5eMaxSpellPoints(config.SpellPointsByLevel);
 
-            classLevels.Add(new ClassLevelTestModel5e() { Name = className1, Subclass = subclass1, Level = class1Level });
-            classLevels.Add(new ClassLevelTestModel5e() { Name = className2, Subclass = subclass2, Level = class2Level });
+            classLevels.Add(new DnD5eClassLevelModel() { Name = className1, Subclass = subclass1, Level = class1Level });
+            classLevels.Add(new DnD5eClassLevelModel() { Name = className2, Subclass = subclass2, Level = class2Level });
             character.ClassLevels = classLevels;
 
             var maxPoints = calculator.GetMax(character);

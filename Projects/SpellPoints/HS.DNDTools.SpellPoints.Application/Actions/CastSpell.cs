@@ -7,18 +7,15 @@ using System.Threading.Tasks;
 
 namespace HS.DNDTools.SpellPoints.Application.Actions
 {
-    public class CastSpell : IDisposable
+    public class CastSpell
     {
-        public CastSpell(ICharacter character) => _character = character; //Awesome constructor is awesome
-        private ICharacter _character = null;
-
-        public int CastLeveledSpell(int spellLevel)
+        public int CastLeveledSpell(int spellLevel, int currentPoints)
         {
             //https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#VariantSpellPoints
             //basic version, this is really not how it should work, we should import rules
             int spellCost = this.GetSpellCost(spellLevel);
-            if (this._character.CurrentSpellPoints < spellCost) throw new Exception("Insufficient spell points");
-            return this._character.CurrentSpellPoints - spellCost;
+            if(currentPoints < spellCost) throw new Exception("Insufficient spell points");
+            return currentPoints - spellCost;
         }
         protected virtual int GetSpellCost(int spellLevel)
         {
@@ -45,10 +42,6 @@ namespace HS.DNDTools.SpellPoints.Application.Actions
                 default:
                     throw new Exception("Spell level does not match.");
             }
-        }
-        public void Dispose()
-        {
-            _character = null; //Unmanaged, I just want to make sure garbage gets collected properly
         }
     }
 }

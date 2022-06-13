@@ -16,7 +16,7 @@ export class CastSpellService {
   }
   castSpell(character:Character, spellLevel:number) : Observable<CastSpellResponseModel>{
     var castSpell:CastSpell = new CastSpell();
-    castSpell.character = character;
+    castSpell.spellPoints = character.currentSpellPoints;
     castSpell.spellLevel = spellLevel;
     return this.httpClient.post<CastSpellResponseModel>("api/v1/cast-spell", castSpell);
   }

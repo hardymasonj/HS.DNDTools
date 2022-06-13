@@ -4,6 +4,6 @@ namespace HS.DNDTools.SpellPoints.WebApp.Endpoints.CastSpell
 {
     public class CastSpellResponseModel
     {
-        public CharacterModel Character { get; set; }
+        public int NewSpellPoints { get; set; }
     }
 }
