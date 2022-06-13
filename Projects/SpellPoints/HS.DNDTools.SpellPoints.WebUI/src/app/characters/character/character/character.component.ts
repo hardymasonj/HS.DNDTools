@@ -28,6 +28,6 @@ export class CharacterComponent implements OnInit {
     })
   }
   castSpell(level:number){
-    this.castSpellService.castSpell(this.character, level).subscribe(x=> this.character = x.character);
+    this.castSpellService.castSpell(this.character, level).subscribe(x=> this.character.currentSpellPoints = x.newSpellPoints);
   }
 }

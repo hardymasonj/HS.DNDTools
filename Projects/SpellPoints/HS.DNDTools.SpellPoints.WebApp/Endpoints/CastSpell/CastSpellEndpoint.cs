@@ -11,11 +11,8 @@ namespace HS.DNDTools.SpellPoints.WebApp.Endpoints.CastSpell
         }
         public async override Task HandleAsync(CastSpellRequestModel req, CancellationToken ct)
         {
-            using (var oLogic = new SpellPoints.Application.Actions.CastSpell(req.Character))
-            {
-                req.Character.CurrentSpellPoints = oLogic.CastLeveledSpell(req.SpellLevel);
-            }
-            await SendAsync(new CastSpellResponseModel() { Character = req.Character });
+            var oLogic = new Application.Actions.CastSpell();
+            await(SendAsync(new CastSpellResponseModel() { NewSpellPoints = oLogic.CastLeveledSpell(req.SpellLevel, req.SpellPoints) }));
         }
     }
 }
