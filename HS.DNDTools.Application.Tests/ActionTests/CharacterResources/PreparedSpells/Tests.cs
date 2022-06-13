@@ -13,7 +13,7 @@ namespace HS.DNDTools.Application.Tests.ActionTests.CharacterResources.PreparedS
 {
     public class Tests
     {
-        [Theory]
+        [Theory(Skip = "Attributes need to be implemented in this test before it will run properly")]
         [InlineData("Wizard", 4, 14, 6)]
         [InlineData("Sorcerer", 4, 14, 6)]
         public void SingleClassTests(string className, int level, int attributeValue, int expected)
@@ -22,10 +22,10 @@ namespace HS.DNDTools.Application.Tests.ActionTests.CharacterResources.PreparedS
             var character = new CharacterModel()
             {
                 ClassLevels = new List<IClassLevel>(new[] { new DnD5eClassLevelModel()
-                {
-                    Level = level,
-                    Name = className
-                }
+                    {
+                        Level = level,
+                        Name = className
+                    }
                 })
             };
             var actual = calculator.GetMax(character);
